@@ -1,0 +1,108 @@
+/*
+  LogSheet.css
+
+  Every color used on the grid line and remark dots pulls from the
+  same --status-* tokens the map markers use, so a color means the
+  same duty status everywhere in the app, not just here.
+*/
+
+.log-sheet {
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
+  padding: var(--space-5);
+}
+
+.log-sheet-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.log-sheet-header h3 {
+  font-size: 1.1rem;
+}
+
+.log-sheet-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.log-sheet-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.log-sheet-hour-label {
+  font-size: 8px;
+  fill: var(--color-text-muted);
+}
+
+.log-sheet-row-label {
+  font-size: 10px;
+  font-weight: 600;
+  fill: var(--color-text);
+}
+
+.log-sheet-total {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--color-primary);
+}
+
+.log-sheet-gridline {
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.log-sheet-gridline-bold {
+  stroke: #c3c9d4;
+  stroke-width: 1.5;
+}
+
+.log-sheet-line {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.log-sheet-remarks {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.log-sheet-remarks-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.log-sheet-remarks ul {
+  list-style: none;
+  margin-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.log-sheet-remarks li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.log-sheet-remarks-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
