@@ -5,7 +5,7 @@ Hours-of-Service cycle usage, then plans the trip against FMCSA HOS
 regulations, showing the route on a map with all required stops, and
 generating filled-out daily log sheets, one per day the trip spans.
 
-**Live app:** https://eld-trip-planner-pi-nine.vercel.app/
+**Live app:** https://eld-trip-planner-q5lx.vercel.app/
 
 ## Stack
 
