@@ -73,6 +73,12 @@ class PlanTripView(APIView):
         for segment in segments:
             if segment["status"] == "driving":
                 cumulative_miles += segment["miles"]
+
+            elif segment["label"] in ("Loading at pickup", "Unloading at dropoff"):
+                # Already represented by the explicit pickup/dropoff
+                # entries above - skip so we don't stack a duplicate
+                # marker on the exact same spot.
+                continue
             else:
                 fraction = min(cumulative_miles / total_distance, 1.0) if total_distance else 0
                 index = int(fraction * (len(combined_geometry) - 1))
