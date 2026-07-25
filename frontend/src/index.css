@@ -2,9 +2,9 @@
 :root {
   /* Brand colors */
   --color-bg: #f5f6f8;          /* page background, soft neutral */
-  --color-surface: #ffffff;     /* cards, form, panels sit on this */
-  --color-primary: #1e3a5f;     /* deep slate blue - header, buttons */
-  --color-primary-dark: #142943;
+  --color-surface: #ffffffee;     /* cards, form, panels sit on this */
+  --color-primary: #724804;      /* amber - used sparingly, for emphasis */
+  --color-dropoff: #340b7a;     /* violet - visually distinct from pickup's blue */
   --color-accent: #f5a623;      /* amber - used sparingly, for emphasis */
 
   /* Text */

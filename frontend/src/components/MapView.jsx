@@ -23,7 +23,7 @@ function createDotIcon(color) {
 // status looks like, everywhere in the app agrees with it.
 const ICONS = {
   pickup: createDotIcon('var(--color-primary)'),
-  dropoff: createDotIcon('var(--color-primary-dark)'),
+  dropoff: createDotIcon('var(--color-dropoff)'),
   on_duty_not_driving: createDotIcon('var(--status-on-duty)'),
   off_duty: createDotIcon('var(--status-off-duty)'),
 };
@@ -85,9 +85,11 @@ export default function MapView({ route, stops }) {
 
       <div className="map-legend">
         <LegendItem colorVar="--color-primary" label="Pickup" />
-        <LegendItem colorVar="--color-primary-dark" label="Dropoff" />
+        <LegendItem colorVar="--color-dropoff" label="Dropoff" />
         <LegendItem colorVar="--status-on-duty" label="Fuel stop" />
         <LegendItem colorVar="--status-off-duty" label="Rest / break" />
+        
+
       </div>
 
       <div className="map-summary">
