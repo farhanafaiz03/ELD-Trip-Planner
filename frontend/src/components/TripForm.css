@@ -1,0 +1,89 @@
+/*
+  TripForm.css
+
+  Styled as a card sitting on the page background, using the shared
+  tokens from index.css - so it automatically matches the header now,
+  and will automatically match the map and log sheet cards once those
+  are built too, without repeating any color/spacing values here.
+*/
+
+.trip-form {
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+}
+
+.trip-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+
+/* Below 640px, two inputs side by side gets cramped - stack to one
+   column instead of shrinking them into unusable strips. */
+@media (max-width: 640px) {
+  .trip-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trip-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.trip-form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.trip-form-input {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--space-3) var(--space-4);
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.trip-form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.12);
+}
+
+.trip-form-input.has-error {
+  border-color: var(--color-danger);
+}
+
+.trip-form-error {
+  font-size: 0.8rem;
+  color: var(--color-danger);
+}
+
+.trip-form-submit {
+  margin-top: var(--space-6);
+  width: 100%;
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  border: none;
+  border-radius: 8px;
+  padding: var(--space-4);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+
+.trip-form-submit:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+.trip-form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
