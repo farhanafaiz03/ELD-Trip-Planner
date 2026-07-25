@@ -26,14 +26,14 @@ generating filled-out daily log sheets, one per day the trip spans.
 
 **Backend:**
 
-`cd backend`
-`python -m venv venv`
-`venv\Scripts\activate`
-`pip install -r requirements.txt`
-`python manage.py runserver`
+- `cd backend`
+- `python -m venv venv`
+- `venv\Scripts\activate`
+- `pip install -r requirements.txt`
+- `python manage.py runserver`
 
 **Frontend:**
 
-`cd frontend`
-`npm install`
-`npm run dev`
+- `cd frontend`
+- `npm install`
+- `npm run dev`
