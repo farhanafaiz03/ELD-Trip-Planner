@@ -1,22 +1,13 @@
-"""
-routing.py
 
-Given two (latitude, longitude) points, asks OSRM's free public
-routing server for the real driving distance, driving time, and the
-actual road-following route line between them - the same kind of
-information a GPS app would give you. No API key required.
-
-Uses OSRM's public demo server (router.project-osrm.org) - fine for
-this assessment's traffic level, not meant for high-volume production.
-"""
 
 import requests
+from .http_utils import get_with_retry
 
 OSRM_BASE_URL = "http://router.project-osrm.org/route/v1/driving"
 
 
 class RoutingError(Exception):
-    """Raised when OSRM can't find or return a route."""
+    """Raised when OSRM can't find, or can't be reached for, a route."""
     pass
 
 
@@ -38,8 +29,10 @@ def get_route(start, end):
         "geometries": "geojson",  # coordinates as plain [lon, lat] pairs
     }
 
-    response = requests.get(url, params=params, timeout=15)
-    response.raise_for_status()
+    try:
+        response = get_with_retry(url, params=params, timeout=20)
+    except requests.exceptions.RequestException as e:
+        raise RoutingError(f"Could not reach the routing service between {start} and {end}") from e
 
     data = response.json()
     if data.get("code") != "Ok" or not data.get("routes"):
@@ -48,7 +41,7 @@ def get_route(start, end):
     route = data["routes"][0]
 
     # Flip OSRM's [lon, lat] pairs to [lat, lon], since that's what
-    # Leaflet (our map library, in Module 6) expects.
+    # Leaflet (our map library) expects.
     geometry = [[lat, lon] for lon, lat in route["geometry"]["coordinates"]]
 
     return {
